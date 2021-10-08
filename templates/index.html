@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<h1 align="center"> Bienvenido al control de arreglos de su automovil</h1>
+<div class="card">
+  <div class="card-body" align="center">
+    Actualice los arreglos de su automovil y descargue un consolidado en Excel.
+  </div>
+</div>
+<br>
+    <div>
+        <form action ="/" method="post">
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Placas</label>
+            <div class="col-sm-10">
+              <input autocomplete="off" autofocus class="form-control" name="placas" placeholder="Placas" type="text">
+            </div>
+          </div>
+
+            <div align="center" class="w-auto p-3">
+            <select class="form-select" name='arreglos'>
+                <option selected>Seleccione que arregló </option>
+                <option value='llantas'>Llantas</option>
+                <option value='motor'>Motor</option>
+                <option value='carroceria'>Carroceria</option>
+                <option value='otro'>Otros</option>
+            </select>
+            </div>
+
+            <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Otro</label>
+            <div class="col-sm-10">
+              <input autocomplete="off" autofocus class="form-control" name="otro" placeholder="Especificque" type="text">
+            </div>
+          </div>
+
+           <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Costo</label>
+            <div class="col-sm-10">
+              <input class="form-control" name="costo" placeholder="Costo" type="number">
+            </div>
+          </div>
+
+          <div <div class="d-grid gap-2 col-1 mx-auto">
+          <button type="submit" class="btn btn-primary">Actualizar</button>
+          </div>
+<br>
+        </form>
+    </div>
+
+    <div>
+        <h2 align="center">Estos son sus arreglos</h2>
+        <i class="bi bi-bar-chart"></i>
+                <table class='table table-striped'>
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Dia</th>
+                            <th scope="col">Placas</th>
+                            <th scope="col">Arreglo</th>
+                            <th scope="col">Otro</th>
+                            <th scope="col">Costo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in arreglos %}
+                            <tr>
+                                <th scope="row">{{x.dia}}</td>
+                                <td>{{x.placas}}</td>
+                                <td>{{x.arreglo}}</td>
+                                <td>{{x.otro}}</td>
+                                <td>{{x.costo}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+    </div>
+{% endblock %}

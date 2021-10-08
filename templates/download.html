@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Enviar reporte
+{% endblock %}
+
+{% block main %}
+
+        {% block body %}{% endblock %}
+    <div>
+        <form action="/download" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="placas" placeholder="Placas" type="text">
+        </div>
+        <button type="submit" class="btn btn-success">Generar Excel</button>
+        </form>
+    </div>
+{% endblock %}
